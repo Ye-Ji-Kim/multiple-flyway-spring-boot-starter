@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  con.spring.custom.autoconfigure.MultipleFlywayAutoConfiguration
+  com.spring.custom.autoconfigure.MultipleFlywayAutoConfiguration
