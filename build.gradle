@@ -1,7 +1,7 @@
 plugins {
     id 'org.springframework.boot' version '2.6.6'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'java'
+    id 'java-library'
     id 'maven-publish'
 }
 
@@ -9,6 +9,7 @@ plugins {
 group = 'com.github.Ye-Ji-Kim'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
+targetCompatibility = '11'
 
 configurations {
     compileOnly {
@@ -29,14 +30,15 @@ dependencies {
 
 publishing {
     publications {
-        maven(MavenPublication) {
-            from components.java
+        mavenJava(MavenPublication) {
+            artifact jar
         }
     }
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
+wrapper {
+    gradleVersion = "7.3.3"
+    distributionType = Wrapper.DistributionType.ALL
 }
 
 bootJar { enabled = false }
